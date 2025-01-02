@@ -6,7 +6,8 @@ import {useList, useNavigation, useUpdate} from "@refinedev/core";
 import {TASK_STAGES_QUERY, TASKS_QUERY} from "@/graphql/queries";
 
 import {GetFieldsFromList} from "@refinedev/nestjs-query";
-import {TasksQuery, TaskStagesQuery} from "@/graphql/types";
+import {TasksQuery} from "@/graphql/types";
+import {TaskStagesQuery} from "@/graphql/types";
 import {ProjectCardMemo} from "@/components/tasks/kanban/card";
 import {KanbanAddCardButton} from "@/components/tasks/kanban/add-card-button";
 import KanbanColumnSkeleton from "@/components/skeleton/kanban";
@@ -14,8 +15,9 @@ import {ProjectCardSkeleton} from "@/components";
 import {DragEndEvent} from "@dnd-kit/core";
 import {UPDATE_TASK_STAGE_MUTATION} from "@/graphql/mutations";
 
-type Task = GetFieldsFromList<TasksQuery>
-type TaskStage = GetFieldsFromList<TaskStagesQuery>
+type TaskStage = GetFieldsFromList<TaskStagesQuery> & {
+    tasks: Array<GetFieldsFromList<TasksQuery>>
+}
 
 export const List = ({children}: React.PropsWithChildren) => {
     const { replace } = useNavigation()
