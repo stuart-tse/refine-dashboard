@@ -14,7 +14,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "skipDefaultLibCheck": false,
+    "baseUrl": "./src", // Base directory to resolve non-relative module names
+    "paths": {
+      "@/*": ["./*"] // Map @/ to the src directory
+    }
   },
   "include": ["src"],
   "references": [
