@@ -14,9 +14,10 @@ import KanbanColumnSkeleton from "@/components/skeleton/kanban";
 import {ProjectCardSkeleton} from "@/components";
 import {DragEndEvent} from "@dnd-kit/core";
 import {UPDATE_TASK_STAGE_MUTATION} from "@/graphql/mutations";
+import { Task, User } from "@/graphql/types";
 
 type TaskStage = GetFieldsFromList<TaskStagesQuery> & {
-    tasks: Array<GetFieldsFromList<TasksQuery>>
+    tasks: Task[];
 }
 
 export const List = ({children}: React.PropsWithChildren) => {

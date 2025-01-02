@@ -250,3 +250,18 @@ export type TaskStagesSelectQuery = {
     nodes: Array<Pick<Types.TaskStage, "id" | "title">>;
   };
 };
+
+export type Task = {
+  id: string;
+  title: string;
+  description: string;
+  stageId?: string | null;
+  dueDate?: string 
+  updatedAt?: string
+  completed: boolean;
+  users: Array<{
+    id: string;
+    name: string;
+    avatarUrl: string;
+  }>
+}
