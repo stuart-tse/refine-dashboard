@@ -22,7 +22,7 @@ type Company = GetFieldsFromList<CompaniesListQuery>;
 export const CompanyList = ({ children } : React.PropsWithChildren) => {
     const go = useGo();
 
-    const { tableProps, filters } = useTable<Company, HttpError, Company>({
+    const { tableProps, filters } = useTable<GetFieldsFromList<CompaniesListQuery>, HttpError, GetFieldsFromList<CompaniesListQuery>>({
         resource: "companies",
         onSearch: (values) => [
             {
