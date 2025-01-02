@@ -14,7 +14,7 @@ import KanbanColumnSkeleton from "@/components/skeleton/kanban";
 import {ProjectCardSkeleton} from "@/components";
 import {DragEndEvent} from "@dnd-kit/core";
 import {UPDATE_TASK_STAGE_MUTATION} from "@/graphql/mutations";
-import { Task, User } from "@/graphql/types";
+import { Task } from "@/graphql/types";
 
 type TaskStage = GetFieldsFromList<TaskStagesQuery> & {
     tasks: Task[];
@@ -135,6 +135,7 @@ export const List = ({children}: React.PropsWithChildren) => {
                                 <ProjectCardMemo
                                     {...task}
                                     dueDate= {task.dueDate || undefined}
+                                    updatedAt={task.updatedAt || ''}
                                 />
                             </KanbanItem>
                         ))}
@@ -158,6 +159,7 @@ export const List = ({children}: React.PropsWithChildren) => {
                                     <ProjectCardMemo
                                         {...task}
                                         dueDate={task.dueDate || undefined}
+                                        updatedAt={task.updatedAt || ''}
                                     />
                                 </KanbanItem>
                             ))}

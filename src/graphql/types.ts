@@ -256,8 +256,8 @@ export type Task = {
   title: string;
   description: string;
   stageId?: string | null;
-  dueDate?: string 
-  updatedAt?: string
+  dueDate?: string | undefined
+  updatedAt?: string | undefined;
   completed: boolean;
   users: Array<{
     id: string;
